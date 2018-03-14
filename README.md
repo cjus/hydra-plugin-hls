@@ -1,5 +1,5 @@
 # hydra-plugin-hls
-Hydra Plugin for use with the [Hydra Logging Service](https://github.com/cjus/hls-svcs). This plugin adds a log function to hydra and overrides the hydraExpress.log call in order to send log messages to the Hydra Distributed Logging Service.
+Hydra Plugin for use with the [Hydra Logging Service](https://github.com/cjus/hydra-logging-svcs). This plugin adds a log function to hydra and overrides the hydraExpress.log call in order to send log messages to the Hydra Distributed Logging Service.
 
 When using Hydra:
 
