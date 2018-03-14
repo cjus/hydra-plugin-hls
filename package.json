@@ -1,0 +1,16 @@
+{
+  "name": "hydra-plugin-hls",
+  "version": "0.1.0",
+  "description": "Hydra Plugin for Hydra Logging Service",
+  "author": "Carlos Justiniano <carlos.justiniano@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjus/hydra-plugin-hls.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cjus/hydra-plugin-hls/issues"
+  },
+  "homepage": "https://github.com/cjus/hydra-plugin-hls#readme"
+}
