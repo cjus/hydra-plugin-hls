@@ -14,7 +14,7 @@ module.exports = (hydra, config) => {
       from,
       body: {
         serviceName: from.replace(':/',''),
-        serviceVersion: hydra.getServiceVersion(),
+        serviceVersion: hydra.getInstanceVersion(),
         instanceID: hydra.getInstanceID(),
         severity: type,
         body: message

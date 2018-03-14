@@ -1,6 +1,6 @@
 {
   "name": "hydra-plugin-hls",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "Hydra Plugin for Hydra Logging Service",
   "author": "Carlos Justiniano <carlos.justiniano@gmail.com>",
   "license": "MIT",

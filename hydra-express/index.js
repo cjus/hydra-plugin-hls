@@ -9,14 +9,12 @@ class HydraHLSPlugin extends HydraExpressPlugin {
   setHydraExpress(hydraExpress) {
     this.hydra = hydraExpress.getHydra();
     this.hydraExpress = hydraExpress;
-    this.setHydra(hydra);
+    this.setHydra(this.hydra);
   }
 
   onServiceReady() {
-    this.hydraExpress.log = require('./logger')(this.hydra, this.config);
+    this.hydraExpress.log = require('../logger')(this.hydra, this.config);
   }
 }
 
-module.exports = {
-  HydraHLSPlugin
-};
+module.exports = HydraHLSPlugin;

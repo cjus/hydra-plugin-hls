@@ -26,6 +26,4 @@ class HydraHLSPlugin extends HydraPlugin {
   }
 }
 
-module.exports = {
-  HydraHLSPlugin
-};
+module.exports = HydraHLSPlugin;
