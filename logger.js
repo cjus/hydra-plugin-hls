@@ -10,7 +10,7 @@ module.exports = (hydra, config) => {
   return (type, message) => {
     let from = `${hydra.getServiceName()}:/`;
     let msg = hydra.createUMFMessage({
-      to: 'hls-svcs:/',
+      to: 'hydra-logging-svcs:/',
       from,
       body: {
         serviceName: from.replace(':/',''),
