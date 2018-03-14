@@ -7,18 +7,28 @@ module.exports = (hydra, config) => {
    * @return {undefined}
    */
   return (type, message) => {
+    if (!hydra.initialized) {
+      return;
+    }
     if (!hydra.config.plugins || !hydra.config.plugins.hydraLogger) {
       console.error('Missing hydraLogger section in app config. See docs at: https://github.com/cjus/hydra-plugin-hls')
       return;
     }
 
     let from = `${hydra.getServiceName()}:/`;
+    let fromName = from.replace(':/','');
     let ts = new Date().getTime() / 1000 | 0;
     let settings = hydra.config.plugins.hydraLogger;
 
     if (settings.logToConsole === true) {
-      let text = (typeof message === 'string') ? message : JSON.stringify(message);
-      console.log(`${ts} ${type} ${from.replace(':/','')} | ${text}`);
+      let text;
+      if (typeof message === 'string') {
+        text = message;
+      } else {
+        const Utils = hydra.getUtilsHelper();
+        text = Utils.safeJSONStringify(message);
+      }
+      console.log(`${ts} ${type} ${fromName} | ${text}`);
     }
 
     if (!settings.onlyLogLocally && message !== 'Unavailable hydra-logger-svcs instances') {
@@ -27,7 +37,7 @@ module.exports = (hydra, config) => {
         from,
         body: {
           ts,
-          serviceName: from.replace(':/',''),
+          serviceName: fromName,
           serviceVersion: hydra.getInstanceVersion(),
           instanceID: hydra.getInstanceID(),
           severity: type,

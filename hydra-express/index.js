@@ -14,6 +14,7 @@ class HydraHLSPlugin extends HydraExpressPlugin {
 
   onServiceReady() {
     this.hydraExpress.log = require('../logger')(this.hydra, this.config);
+    this.hydraExpress.appLogger = this.hydraExpress.log;
   }
 }
 
