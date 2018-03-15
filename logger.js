@@ -28,7 +28,7 @@ module.exports = (hydra, config) => {
         const Utils = hydra.getUtilsHelper();
         text = Utils.safeJSONStringify(message);
       }
-      console.log(`${ts} ${type} ${fromName} | ${text}`);
+      console.log(`${ts} ${type.toUpperCase()} ${fromName} | ${text}`);
     }
 
     if (!settings.onlyLogLocally && message !== 'Unavailable hydra-logger-svcs instances') {
