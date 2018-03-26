@@ -14,6 +14,9 @@ module.exports = (hydra, config) => {
       console.error('Missing hydraLogger section in app config. See docs at: https://github.com/cjus/hydra-plugin-hls')
       return;
     }
+    if (typeof message === 'object' && message.msg === 'Unavailable hydra-logging-svcs instances') {
+      return;
+    }
 
     let from = `${hydra.getServiceName()}:/`;
     let fromName = from.replace(':/','');
@@ -31,7 +34,7 @@ module.exports = (hydra, config) => {
       console.log(`${ts} ${type.toUpperCase()} ${fromName} | ${text}`);
     }
 
-    if (!settings.onlyLogLocally && message !== 'Unavailable hydra-logger-svcs instances') {
+    if (!settings.onlyLogLocally) {
       let msg = hydra.createUMFMessage({
         to: 'hydra-logging-svcs:/',
         from,
